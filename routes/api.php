@@ -21,3 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 require base_path('routes/api/auth.php');
 
 require base_path('routes/api/project.php');
+
+require base_path('routes/api/project-member.php');

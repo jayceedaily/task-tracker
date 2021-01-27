@@ -14,11 +14,18 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
+
             $table->id();
             $table->uuid('uuid')->index('uuid');
             $table->string('name', 255);
             $table->longText('description')->nullable();
             $table->timestamps();
+
+            $table->foreignId('created_by');
+            $table->foreign('created_by')->references('id')->on('users');
+
+            $table->foreignId('updated_by');
+            $table->foreign('updated_by')->references('id')->on('users');
         });
     }
 
