@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Project;
+namespace App\Http\Controllers\Task;
 
-use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ShowController extends Controller
+class IndexController extends Controller
 {
     public function handle(Request $request, Project $project)
     {
@@ -15,6 +15,6 @@ class ShowController extends Controller
             abort(403);
         }
 
-        return response($project);
+        return response($project->tasks()->simplePaginate());
     }
 }

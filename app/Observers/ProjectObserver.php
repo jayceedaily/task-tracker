@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Project;
+use App\Models\ProjectStage;
 use App\Models\ProjectMember;
 
 class ProjectObserver
@@ -16,9 +17,27 @@ class ProjectObserver
     public function created(Project $project)
     {
         ProjectMember::create([
-            'user_id' => $project->created_by,
-            'project_id' => $project->id,
-            'role' => 'owner',
+            'user_id'       => $project->created_by,
+            'project_id'    => $project->id,
+            'role'          => 'owner',
+        ]);
+
+        ProjectStage::create([
+            'project_id'    => $project->id,
+            'name'          => 'To-do',
+            'order'         => 1,
+        ]);
+
+        ProjectStage::create([
+            'project_id'    => $project->id,
+            'name'          => 'Pending',
+            'order'         => 2,
+        ]);
+
+        ProjectStage::create([
+            'project_id'    => $project->id,
+            'name'          => 'Completed',
+            'order'         => 3,
         ]);
     }
 

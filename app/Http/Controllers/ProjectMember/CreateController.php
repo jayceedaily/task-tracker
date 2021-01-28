@@ -13,7 +13,7 @@ class CreateController extends Controller
     {
         $projectMember = new ProjectMember($request->validated());
 
-        $project->projectMembers()->save($projectMember);
+        $project->members()->save($projectMember);
 
         return response($projectMember, 201);
     }

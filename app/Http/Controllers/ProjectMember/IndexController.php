@@ -10,6 +10,11 @@ class IndexController extends Controller
 {
     public function handle(Request $request, Project $project)
     {
-        return response($project->projectMembers()->with('user')->simplePaginate());
+        if($request->user()->cannot('view', $project))
+        {
+            abort(403);
+        }
+
+        return response($project->members()->with('user')->simplePaginate());
     }
 }
