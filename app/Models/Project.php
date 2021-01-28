@@ -13,8 +13,6 @@ class Project extends Model
 
     protected $hidden = ['id', ];
 
-
-
     public function members()
     {
         return $this->hasManyThrough('App\Models\User', 'App\Models\ProjectMember',

@@ -10,6 +10,10 @@ class IndexController extends Controller
 {
     public function handle(Request $request)
     {
-        return Project::latest()->paginate();
+        return $request
+                ->user()
+                ->projects()
+                ->latest()
+                ->simplePaginate();
     }
 }

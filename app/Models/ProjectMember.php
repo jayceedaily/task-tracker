@@ -12,8 +12,6 @@ class ProjectMember extends Model
 
     protected $fillable = ['user_id', 'project_id', 'role'];
 
-    protected $hidden = ['id', 'project_id', 'user_id', 'user.id'];
-
     public function user()
     {
         return $this->belongsTo('App\Models\User');

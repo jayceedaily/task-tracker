@@ -43,4 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function projects()
+    {
+        return $this->hasManyThrough('App\Models\Project', 'App\Models\ProjectMember','project_id','id','id','user_id');
+    }
 }
