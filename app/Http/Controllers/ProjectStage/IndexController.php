@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ProjectMember;
+namespace App\Http\Controllers\ProjectStage;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -15,8 +15,8 @@ class IndexController extends Controller
             abort(403);
         }
 
-        $members = $project->members()->with('user')->simplePaginate();
+        $stages = $project->stages()->orderBy('order','ASC')->get();
 
-        return response($members);
+        return response(['data' => $stages]);
     }
 }
