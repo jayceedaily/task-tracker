@@ -10,4 +10,9 @@ class ProjectStage extends Model
     use HasFactory, HasUuid;
 
     protected $fillable = ['project_id', 'name', 'order'];
+
+    public function project()
+    {
+        return $this->belongsTo('App\Models\Project');
+    }
 }
