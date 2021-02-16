@@ -6,20 +6,19 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::prefix('project')->group(function(){
 
-        Route::get('/{project:uuid}/task', ['App\Http\Controllers\Task\IndexController','handle']);
+        Route::get('/{project:uuid}/task', ['App\Http\Controllers\TasksController','index']);
 
-        Route::post('/{project:uuid}/task', ['App\Http\Controllers\Task\CreateController','handle']);
+        Route::post('/{project:uuid}/task', ['App\Http\Controllers\TasksController','create']);
 
     });
 
     Route::prefix('task')->group(function(){
 
-        Route::get('/{task:uuid}',  ['App\Http\Controllers\Task\ShowController','handle']);
+        Route::get('/{task:uuid}',  ['App\Http\Controllers\TasksController','show']);
 
-        Route::put('/{task:uuid}',  ['App\Http\Controllers\Task\EditController','handle']);
+        Route::put('/{task:uuid}',  ['App\Http\Controllers\TasksController','edit']);
 
-        Route::delete('/{task:uuid}',  ['App\Http\Controllers\Task\DeleteController','handle']);
+        Route::delete('/{task:uuid}',  ['App\Http\Controllers\TasksController','destroy']);
 
     });
-
 });

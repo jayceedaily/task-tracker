@@ -20,4 +20,9 @@ class Project extends Model
     {
         return $this->hasMany('App\Models\ProjectStage');
     }
+
+    public function tasks()
+    {
+        return $this->hasManyThrough('App\Models\Task', 'App\Models\ProjectStage');
+    }
 }
