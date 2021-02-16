@@ -27,3 +27,5 @@ require base_path('routes/api/project-member.php');
 require base_path('routes/api/project-stage.php');
 
 require base_path('routes/api/task.php');
+
+require base_path('routes/api/comment.php');
