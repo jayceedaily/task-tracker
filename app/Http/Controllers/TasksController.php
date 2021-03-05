@@ -30,6 +30,7 @@ class TasksController extends Controller
 
         $task = new Task($request->validated());
 
+
         $project->tasks()->save($task);
 
         return response($task, 201);
@@ -57,7 +58,7 @@ class TasksController extends Controller
         return response($task);
     }
 
-    public function delete(Task $task)
+    public function destroy(Task $task)
     {
         $task->delete();
 
