@@ -46,6 +46,12 @@ class User extends Authenticatable
 
     public function projects()
     {
-        return $this->hasManyThrough('App\Models\Project', 'App\Models\ProjectMember','project_id','id','id','user_id');
+        return $this->hasManyThrough('App\Models\Project',
+            'App\Models\ProjectMember',
+            'user_id',
+            'id',
+            'id',
+            'project_id',
+        );
     }
 }
