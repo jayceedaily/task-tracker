@@ -23,6 +23,6 @@ class Project extends Model
 
     public function tasks()
     {
-        return $this->hasManyThrough('App\Models\Task', 'App\Models\ProjectStage');
+        return $this->hasMany('App\Models\Task');
     }
 }
