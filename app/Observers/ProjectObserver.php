@@ -49,7 +49,23 @@ class ProjectObserver
      */
     public function updated(Project $project)
     {
-        //
+        switch($project->stage->action) {
+
+            case 'start':
+
+                $project->started_at = now();
+                $project->started_by = $project->updated_by;
+                $project->save();
+
+                break;
+
+            case 'complete':
+                $project->completed_at = now();
+                $project->completed_by = $project->updated_by;
+                $project->save();
+
+                break;
+        }
     }
 
     /**
@@ -60,7 +76,7 @@ class ProjectObserver
      */
     public function deleted(Project $project)
     {
-        
+
     }
 
     /**
