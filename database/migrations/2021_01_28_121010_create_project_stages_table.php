@@ -24,13 +24,20 @@ class CreateProjectStagesTable extends Migration
 
             $table->integer('order');
 
+            $table->string('action')->nullable();
+
             $table->timestamps();
+
+            $table->timestamp('deleted_at')->nullable();
 
             $table->foreignId('created_by');
             $table->foreign('created_by')->references('id')->on('users');
 
             $table->foreignId('updated_by');
             $table->foreign('updated_by')->references('id')->on('users');
+
+            $table->foreignId('deleted_by')->nullable();
+            $table->foreign('deleted_by')->references('id')->on('users');
         });
     }
 
