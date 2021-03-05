@@ -15,4 +15,9 @@ class ProjectStage extends Model
     {
         return $this->belongsTo('App\Models\Project');
     }
+
+    public function tasks()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
 }
