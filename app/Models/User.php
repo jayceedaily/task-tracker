@@ -54,4 +54,9 @@ class User extends Authenticatable
             'project_id',
         );
     }
+
+    public function logs()
+    {
+        // return $this->has
+    }
 }
