@@ -2,18 +2,20 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectController;
+use App\Models\Project;
 
 Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::prefix('project')->group(function(){
 
-        Route::get('/', ['App\Http\Controllers\ProjectController','index']);
+        Route::get('/', [ProjectController::class,'index']);
 
-        Route::post('/', ['App\Http\Controllers\ProjectController','create']);
+        Route::post('/', [ProjectController::class,'create']);
 
-        Route::get('/{project:uuid}', ['App\Http\Controllers\ProjectController','show']);
+        Route::get('/{project:uuid}', [ProjectController::class,'show']);
 
-        Route::put('/{project:uuid}', ['App\Http\Controllers\ProjectController','edit']);
+        Route::put('/{project:uuid}', [ProjectController::class,'edit']);
 
     });
 
