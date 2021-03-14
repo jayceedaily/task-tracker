@@ -30,7 +30,7 @@ class ProjectPolicy
      */
     public function view(User $user, Project $project)
     {
-        return $project->members()->where('user_id', $user->id)->exists();
+        return $project->members()->where('user_id', $user->id)->exists() || ! $project->is_private;
     }
 
     /**

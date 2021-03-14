@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->uuid('uuid')->index('uuid');
             $table->string('name', 255);
             $table->longText('description')->nullable();
+            $table->boolean('is_private')->default(false);
             $table->timestamps();
 
             $table->foreignId('created_by');
