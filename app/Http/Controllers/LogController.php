@@ -66,10 +66,16 @@ class LogController extends Controller
      * @param Request $request
      * @param Log $log
      * @return Response|ResponseFactory
+     * @throws HttpException
+     * @throws NotFoundHttpException
      * @throws BindingResolutionException
      */
     public function show(Request $request, Log $log)
     {
+        if($request->user()->cannot('view', $log)) {
+            abort(403);
+        }
+
         return response($log);
     }
 
