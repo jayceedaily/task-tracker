@@ -12,16 +12,13 @@ class ProjectController extends Controller
 {
     public function index(Request $request)
     {
-        return $request
+        $projects = $request
                 ->user()
                 ->projects()
                 ->latest()
                 ->simplePaginate();
 
-
-        // return vsprintf(str_replace('?', '%s', $query->toSql()), collect($query->getBindings())->map(function ($binding) {
-        //     return is_numeric($binding) ? $binding : "'{$binding}'";
-        // })->toArray());
+        return response($projects);
     }
 
     public function create(CreateRequest $request)
