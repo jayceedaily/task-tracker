@@ -1,15 +1,17 @@
 <template>
+
     <div>
 
-        <p>sssss</p>
+        <top-nav/>
 
     </div>
 </template>
 
 <script>
-
+import TopNav from './Layout/TopNav';
 
 export default {
+  components: { TopNav },
     name: 'App'
 
 }
