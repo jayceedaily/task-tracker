@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <title>Forms</title>
+
 </head>
 <body >
     <div id="app">
         <app></app>
     </div>
-
-    <script src="{{ mix('js/app.js') }}"></script>
-
+    <script src="{{ asset('js/lang.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
 </body>
 </html>
